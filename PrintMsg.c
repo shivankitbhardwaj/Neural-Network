@@ -36,14 +36,17 @@ else
       ITM_SendChar(*ptr);
       ++ptr;
    }		 
-	 
-	 sprintf(Msg, "\nFinal value is %x", c);
+if ((a>4) || (b>4))
+	 sprintf(Msg, "\nFinal value can not be found due to invalid selection");
+else sprintf(Msg, "\nFinal value is %x", c);
 	 ptr = Msg ;
    while(*ptr != '\0'){
       ITM_SendChar(*ptr);
       ++ptr;
    }	
-	 sprintf(Msg, "\nTraining data value is %d", d);
+if ((a>4) || (b>4))
+	sprintf(Msg, "\nTraining data value can not be found due to invalid selection");
+else sprintf(Msg, "\nTraining data value is %d", d);
 	 ptr = Msg ;
    while(*ptr != '\0'){
       ITM_SendChar(*ptr);

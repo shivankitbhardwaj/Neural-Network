@@ -6,7 +6,7 @@
 __main  FUNCTION
 ; IGNORE THIS PART
 ; select dataset logic
-	      MOV R8, #4 ; dataset selection
+	      MOV R8, #2 ; dataset selection
 		  MOV R1, #1 ; dataset 1
 		  MOV R2, #2 ; dataset 2
 		  MOV R3, #3 ; dataset 3
@@ -24,7 +24,6 @@ __main  FUNCTION
 		 CMP R8,R4 ; for dataset 4
 		 BEQ dset4
 		 
-		; B stop
 
 ; dataset 1
 dset1	  VLDR.F32 s0 , =1 ;X0 DATA
@@ -56,7 +55,7 @@ dset4	  VLDR.F32 s0 , =1 ;X0 DATA
 		  
 ;switch case logic
 
-lsel	  MOV R9, #1 ; logic selection
+lsel	  MOV R9, #4 ; logic selection
 		  MOV R1, #1 ; NAND_LOGIC
 		  MOV R2, #2 ; NOR_LOGIC
 		  MOV R3, #3 ; AND_LOGIC
@@ -85,7 +84,6 @@ lsel	  MOV R9, #1 ; logic selection
 		 
 		 CMP R9,R7 ; NOT
 		 BEQ NOT_LOGIC
-		; B stop
 		 
 		 
 NAND_LOGIC         VLDR.F32 s28 ,=0.6 	;WEIGHT W1   

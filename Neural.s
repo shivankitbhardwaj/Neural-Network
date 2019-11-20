@@ -24,7 +24,7 @@ __main  FUNCTION
 		 CMP R8,R4 ; for dataset 4
 		 BEQ dset4
 		 
-		 B stop
+		; B stop
 
 ; dataset 1
 dset1	  VLDR.F32 s0 , =1 ;X0 DATA
@@ -85,7 +85,7 @@ lsel	  MOV R9, #1 ; logic selection
 		 
 		 CMP R9,R7 ; NOT
 		 BEQ NOT_LOGIC
-		 B stop
+		; B stop
 		 
 		 
 NAND_LOGIC         VLDR.F32 s28 ,=0.6 	;WEIGHT W1   

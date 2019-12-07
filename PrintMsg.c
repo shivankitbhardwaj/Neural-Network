@@ -1,56 +1,64 @@
 #include "stm32f4xx.h"
-#include <string.h>
-void PrintMsg(const int a, const int b, const int c, const int d)
+void printMsg(const int a,const int b,const int c,const int d)
 {
 	 char Msg[100];
 	 char *ptr;
-
-if (a<=4)	
-	 sprintf(Msg, "You have selected dataset number %x\n", a);
-else 
-	sprintf(Msg, "You have selected an invalid dataset number\n");
+	switch (a) {
+            case 7:
+							sprintf(Msg, "\n AND %x ", a);
+                break;
+            case 6:
+                sprintf(Msg, "\n OR %x   ", a);
+                break;
+            case 5:
+                sprintf(Msg, "\n NOT %x ", a);
+                break;
+						case 4:
+                sprintf(Msg, "\n  NAND %x", a);
+						 break;
+ 						case 3:
+                sprintf(Msg, "\n  NOR %x ", a);
+						break;						
+						case 2:
+                sprintf(Msg, "\n  XOR %x ", a);
+ 						 break;
+						case 1:
+                sprintf(Msg, "\n XNOR %x ", a);  
+					
+						 
+            
+        }
+	
+	 
 	 ptr = Msg ;
-   while(*ptr != '\0'){
+   while(*ptr != '\0')
+	 {
       ITM_SendChar(*ptr);
       ++ptr;
    }
-
-if (b==1)	
-	 sprintf(Msg, "You have selected NAND logic %x", b);
-else if (b==2) 
-	sprintf(Msg, "You have selected NOR logic %x", b);
-else if (b==3) 
-	sprintf(Msg, "You have selected AND logic %x", b);
-else if (b==4) 
-	sprintf(Msg, "You have selected OR logic %x", b);
-else if (b==5) 
-	sprintf(Msg, "You have selected XOR logic %x", b);
-else if (b==6) 
-	sprintf(Msg, "You have selected XNOR logic %x", b);
-else if (b==7) 
-	sprintf(Msg, "You have selected NOT logic %x", b);
-else 
-	sprintf(Msg, "You have selected an invalid logic");
+   
+	 sprintf(Msg, "\n input1 = %x ", b);
 	 ptr = Msg ;
-   while(*ptr != '\0'){
+   while(*ptr != '\0')
+	 {
       ITM_SendChar(*ptr);
       ++ptr;
-   }		 
-if ((a>4) || (b>4))
-	 sprintf(Msg, "\nFinal value can not be found due to invalid selection");
-else sprintf(Msg, "\nFinal value is %x", c);
+   }
+		 sprintf(Msg, " input2 = %x  ", c);
 	 ptr = Msg ;
-   while(*ptr != '\0'){
+   while(*ptr != '\0')
+	 {
       ITM_SendChar(*ptr);
       ++ptr;
-   }	
-if ((a>4) || (b>4))
-	sprintf(Msg, "\nTraining data value can not be found due to invalid selection");
-else sprintf(Msg, "\nTraining data value is %d", d);
+   }
+		 sprintf(Msg, " input3 = %x  ",d);
 	 ptr = Msg ;
-   while(*ptr != '\0'){
+   while(*ptr != '\0')
+	 {
       ITM_SendChar(*ptr);
       ++ptr;
-   }	 
+   }
+		
 	 
 }
+
